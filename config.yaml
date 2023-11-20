@@ -1,5 +1,5 @@
-baseURL: https://example.com
-title: Oskar Mikko
+baseURL: https://oskarmikko.netlify.app/
+title: Oskar Mikko's Blog
 theme: hugo-theme-m10c
 paginate: 8
 menu:
