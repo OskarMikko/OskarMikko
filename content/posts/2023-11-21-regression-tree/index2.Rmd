@@ -1,9 +1,14 @@
 ---
-title: "Regression Analysis"
-author: "Frida Gomam"
-date: 2020-12-01T21:13:14-05:00
-categories: ["R"]
-tags: ["R Markdown", "plot", "regression"]
+title: Regression Tree
+author: Oskar Vilhelmsson
+date: '2023-11-21'
+slug: []
+categories:
+  - Machine Learning
+tags:
+  - R
+  - Classification
+  - CART
 ---
 
 ```{r setup, include=FALSE}
