@@ -12,13 +12,10 @@ menu:
       name: Tags
       url: /tags/
       weight: 2
-    - identifier: about
-      name: About
-      url: /about/
-      weight: 3
+      
 params:
   author: Oskar Mikko Vilhelmsson
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  description: This is my blog for my data science projects.
   menu_item_separator: ' - '
   social:
     - icon: github
