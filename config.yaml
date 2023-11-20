@@ -1,5 +1,5 @@
 baseURL: https://example.com
-title: Your title
+title: Oskar Mikko
 theme: hugo-theme-m10c
 paginate: 8
 menu:
@@ -17,13 +17,11 @@ menu:
       url: /about/
       weight: 3
 params:
-  author: John Doe
+  author: Oskar Mikko Vilhelmsson
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   menu_item_separator: ' - '
   social:
     - icon: github
       name: Github
-      url: https://github.com/gohugoio
-    - icon: twitter
-      name: Twitter
-      url: https://twitter.com/gohugoio
+      url: https://github.com/OskarMikko
+
