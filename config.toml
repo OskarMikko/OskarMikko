@@ -1,0 +1,7 @@
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.55.0"
+    
+  [markup.goldmark.renderer]
+  unsafe= true
