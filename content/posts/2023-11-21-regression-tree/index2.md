@@ -84,7 +84,7 @@ tree <- rpart(yesno ~., data = train)
 rpart.plot(tree)
 ```
 
-<img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="staticunnamed-chunk-4-1.png" width="672" />
 
 
 
@@ -113,7 +113,7 @@ printcp(tree)
 plotcp(tree)
 ```
 
-<img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="staticunnamed-chunk-5-1.png" width="672" />
 
 
 

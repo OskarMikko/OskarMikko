@@ -1,0 +1,24 @@
+baseURL: https://oskarmikko.netlify.app/
+title: Oskar Mikko's Blog
+theme: hugo-theme-m10c
+paginate: 8
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 1
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 2
+      
+params:
+  author: Oskar Mikko Vilhelmsson
+  description: This is my blog for my data science projects.
+  menu_item_separator: ' - '
+  social:
+    - icon: github
+      name: Github
+      url: https://github.com/OskarMikko
+
