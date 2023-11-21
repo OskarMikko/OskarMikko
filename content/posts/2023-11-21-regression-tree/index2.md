@@ -1,15 +1,15 @@
 ---
-title: Tree-based classification and regression
-author: Oskar Vilhelmsson
-date: '2023-11-21'
-slug: []
-categories:
-  - Machine Learning
+title: "Tree-based classification and regression"
+author: "Oskar Vilhelmsson"
+date: "2023-11-21"
+output: pdf_document
+categories: Machine Learning
 tags:
-  - R
-  - Classification
-  - CART
-  - Regression
+- R
+- Classification
+- CART
+- Regression
+slug: []
 ---
 
 
@@ -84,8 +84,10 @@ tree <- rpart(yesno ~., data = train)
 rpart.plot(tree)
 ```
 
-<img src="staticunnamed-chunk-4-1.png" width="672" />
+<img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+The root node is dollar and if dollar is > 0.046 then the email is classified as spam. 27% of the data has dollar > 0.046 and 88% of that data is spam.
 
+The second node is bang, and the splitting criteria is bang < 0.18. 
 
 
 
@@ -113,7 +115,7 @@ printcp(tree)
 plotcp(tree)
 ```
 
-<img src="staticunnamed-chunk-5-1.png" width="672" />
+<img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 
 
