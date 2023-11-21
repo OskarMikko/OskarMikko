@@ -1,5 +1,5 @@
 ---
-title: Regression Tree
+title: Tree-based classification and regression
 author: Oskar Vilhelmsson
 date: '2023-11-21'
 slug: []
@@ -9,34 +9,76 @@ tags:
   - R
   - Classification
   - CART
+  - Regression
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+```{r setup, include=FALSE,}
+knitr::opts_chunk$set(collapse = TRUE,warning=FALSE,message=F,fig.path = "static")
 ```
 
-# R Markdown
+# Decision trees
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+- The goal is to classify or predict an outcome based on a set of predictors.
 
-You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-fit <- lm(dist ~ speed, data = cars)
-fit
+```{r}
+library(tidyverse)
+library(DAAG)
+library(party)
+library(rpart)
+library(rpart.plot)
+library(mlbench)
+library(pROC)
+library(tree)
+library(caret)
 ```
 
-# Including Plots
+## Classification Tree: Detecting email spam data
 
-You can also embed plots. See Figure \@ref(fig:pie) for example:
 
-```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
-par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
-  col = c('#0292D8', '#F7EA39', '#C4B632'),
-  init.angle = -50, border = NA
-)
+```{r}
+data <- spam7
+str(data)  
+table(data$yesno)
 ```
+
+The data consists of 4601 emails, 1813 of them were considered as spam emails.
+
+The variables in the dataset are:
+ - crl.tot: total length of words in capitals
+ - dollar: number of occurrences of the $ symbol.
+ - bang: number of occurrences of the ! symbol.
+ - money: number of occurrences of the word 'money'
+ - n000: number of occurrences of the string '000'
+ - make: number of occurrences of the word 'make'
+ - yesno: outcome variable; y = if spam, no = if not spam
+
+- The goal is to classify each email as spam or not spam using the decision tree.
+
+# Splitting data
+
+We need to split data into training and testing for our model. 
+
+```{r}
+set.seed(1337)
+index <- sample(2, nrow(data), replace = T, prob = c(0.5, 0.5))
+train <- data[index == 1,]
+test <- data[index == 2,]
+``` 
+
+# The tree  
+```{r}
+tree <- rpart(yesno ~., data = train)
+rpart.plot(tree)
+```
+
+
+
+
+```{r}
+printcp(tree)
+plotcp(tree)
+```
+
+
+
+

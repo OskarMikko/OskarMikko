@@ -2,33 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/categories/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/2020-12-01-r-rmarkdown/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/tags/cart/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/categories/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/plot/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/tags/classification/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/categories/machine-learning/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/r/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/posts/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/r-markdown/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/tags/r/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/regression/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/tags/regression/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/tags/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/about/</loc>
+    <loc>/posts/2023-11-21-regression-tree/index2/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/about/</loc>
   </url>
 </urlset>

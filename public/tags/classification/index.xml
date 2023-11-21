@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
-    <link>/</link>
-    <description>Recent content on </description>
+    <title>Classification on </title>
+    <link>/tags/classification/</link>
+    <description>Recent content in Classification on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 21 Nov 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/classification/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tree-based classification and regression</title>
       <link>/posts/2023-11-21-regression-tree/index2/</link>
       <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
       <guid>/posts/2023-11-21-regression-tree/index2/</guid>
       <description>Decision trees The goal is to classify or predict an outcome based on a set of predictors. library(tidyverse) library(DAAG) library(party) library(rpart) library(rpart.plot) library(mlbench) library(pROC) library(tree) library(caret) Classification Tree: Detecting email spam data data &amp;lt;- spam7 str(data) ## &amp;#39;data.frame&amp;#39;:	4601 obs. of 7 variables: ## $ crl.tot: num 278 1028 2259 191 191 ... ## $ dollar : num 0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ... ## $ bang : num 0.</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/about/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lacinia lorem quis sodales auctor. Donec bibendum odio leo, bibendum iaculis lectus dapibus sit amet. Etiam ut euismod lectus, vel finibus metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer quis vestibulum justo. Duis scelerisque ullamcorper sem, eget congue lorem ultrices mattis. Nam ut mollis tellus, id facilisis turpis. Duis ac egestas mi, a mattis dolor. Curabitur vestibulum est nec tortor hendrerit, vehicula malesuada quam tempor.</description>
     </item>
   </channel>
 </rss>

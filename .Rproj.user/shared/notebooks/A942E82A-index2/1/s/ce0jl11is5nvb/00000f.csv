@@ -1,264 +1,87 @@
-"0","install.packages(""caret"")
+"0","library(tidyverse)
 "
-"2","WARNING: Rtools is required to build R packages but is not currently installed. Please download and install the appropriate version of Rtools before proceeding:
-
-https://cran.rstudio.com/bin/windows/Rtools/
+"2","── [1mAttaching core tidyverse packages[22m ───────────────────────────────────────── tidyverse 2.0.0 ──
+[32m✔[39m [34mdplyr    [39m 1.1.3     [32m✔[39m [34mreadr    [39m 2.1.4
+[32m✔[39m [34mforcats  [39m 1.0.0     [32m✔[39m [34mstringr  [39m 1.5.0
+[32m✔[39m [34mggplot2  [39m 3.4.4     [32m✔[39m [34mtibble   [39m 3.2.1
+[32m✔[39m [34mlubridate[39m 1.9.3     [32m✔[39m [34mtidyr    [39m 1.3.0
+[32m✔[39m [34mpurrr    [39m 1.0.2     "
+"2","── [1mConflicts[22m ─────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+[31m✖[39m [34mdplyr[39m::[32mfilter()[39m masks [34mstats[39m::filter()
+[31m✖[39m [34mdplyr[39m::[32mlag()[39m    masks [34mstats[39m::lag()
+[36mℹ[39m Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors"
+"0","library(DAAG)"
+"0","library(party)"
+"2","Loading required package: grid
 "
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/listenv_0.9.0.zip'
+"2","Loading required package: mvtnorm
 "
-"2","Content type 'application/zip'"
-"2"," length 108486 bytes (105 KB)
+"2","Loading required package: modeltools
 "
-"2","downloaded 105 KB
-
+"2","Loading required package: stats4
 "
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/parallelly_1.36.0.zip'
+"2","Loading required package: strucchange
 "
-"2","Content type 'application/zip'"
-"2"," length 351037 bytes (342 KB)
+"2","Loading required package: zoo
 "
-"2","downloaded 342 KB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/future_1.33.0.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 676401 bytes (660 KB)
-"
-"2","downloaded 660 KB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/globals_0.16.2.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 107014 bytes (104 KB)
-"
-"2","downloaded 104 KB
+"2","
+Attaching package: ‘zoo’
 
 "
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/shape_1.4.6.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 786293 bytes (767 KB)
-"
-"2","downloaded 767 KB
+"2","The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
 
 "
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/future.apply_1.11.0.zip'
+"2","Loading required package: sandwich
 "
-"2","Content type 'application/zip'"
-"2"," length 156529 bytes (152 KB)
-"
-"2","downloaded 152 KB
+"2","
+Attaching package: ‘strucchange’
 
 "
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/numDeriv_2016.8-1.1.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 116116 bytes (113 KB)
-"
-"2","downloaded 113 KB
+"2","The following object is masked from ‘package:stringr’:
+
+    boundary
 
 "
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/progressr_0.14.0.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 387505 bytes (378 KB)
-"
-"2","downloaded 378 KB
+"2","
+Attaching package: ‘party’
 
 "
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/SQUAREM_2021.1.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 183124 bytes (178 KB)
-"
-"2","downloaded 178 KB
+"2","The following object is masked from ‘package:dplyr’:
+
+    where
 
 "
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/diagram_1.6.5.zip'
+"0","library(rpart)"
+"0","library(rpart.plot)"
+"0","library(mlbench)"
+"0","library(pROC)"
+"2","Type 'citation(""pROC"")' for a citation.
 "
-"2","Content type 'application/zip'"
-"2"," length 682134 bytes (666 KB)
-"
-"2","downloaded 666 KB
+"2","
+Attaching package: ‘pROC’
 
 "
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/lava_1.7.3.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 2562316 bytes (2.4 MB)
-"
-"2","downloaded 2.4 MB
+"2","The following objects are masked from ‘package:stats’:
+
+    cov, smooth, var
 
 "
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/prodlim_2023.08.28.zip'
+"0","library(tree)"
+"0","library(caret)"
+"2","Loading required package: lattice
 "
-"2","Content type 'application/zip'"
-"2"," length 415509 bytes (405 KB)
+"2","Registered S3 method overwritten by 'data.table':
+  method           from
+  print.data.table     
 "
-"2","downloaded 405 KB
+"2","
+Attaching package: ‘caret’
 
 "
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/proxy_0.4-27.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 179940 bytes (175 KB)
-"
-"2","downloaded 175 KB
+"2","The following object is masked from ‘package:purrr’:
 
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/iterators_1.0.14.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 353042 bytes (344 KB)
-"
-"2","downloaded 344 KB
+    lift
 
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/clock_0.7.0.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 2132369 bytes (2.0 MB)
-"
-"2","downloaded 2.0 MB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/gower_1.0.1.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 314815 bytes (307 KB)
-"
-"2","downloaded 307 KB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/hardhat_1.3.0.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 835719 bytes (816 KB)
-"
-"2","downloaded 816 KB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/ipred_0.9-14.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 388652 bytes (379 KB)
-"
-"2","downloaded 379 KB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/timeDate_4022.108.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 1396093 bytes (1.3 MB)
-"
-"2","downloaded 1.3 MB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/e1071_1.7-13.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 653430 bytes (638 KB)
-"
-"2","downloaded 638 KB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/foreach_1.5.2.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 148209 bytes (144 KB)
-"
-"2","downloaded 144 KB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/ModelMetrics_1.2.2.2.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 484573 bytes (473 KB)
-"
-"2","downloaded 473 KB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/recipes_1.0.8.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 1555552 bytes (1.5 MB)
-"
-"2","downloaded 1.5 MB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/reshape2_1.4.4.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 455987 bytes (445 KB)
-"
-"2","downloaded 445 KB
-
-"
-"2","trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/caret_6.0-94.zip'
-"
-"2","Content type 'application/zip'"
-"2"," length 3577191 bytes (3.4 MB)
-"
-"2","downloaded 3.4 MB
-
-"
-"1","package ‘listenv’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘parallelly’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘future’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘globals’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘shape’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘future.apply’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘numDeriv’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘progressr’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘SQUAREM’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘diagram’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘lava’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘prodlim’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘proxy’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘iterators’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘clock’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘gower’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘hardhat’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘ipred’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘timeDate’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘e1071’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘foreach’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘ModelMetrics’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘recipes’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘reshape2’ successfully unpacked and MD5 sums checked
-"
-"1","package ‘caret’ successfully unpacked and MD5 sums checked
-"
-"1","
-"
-"1",""
-"1","The downloaded binary packages are in
-	C:\Users\Oskar\AppData\Local\Temp\RtmpcDozt7\downloaded_packages"
-"1",""
-"1","
 "
