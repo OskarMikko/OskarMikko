@@ -1,5 +1,5 @@
 ---
-title: Regression Tree
+title: Tree-based classification and regression
 author: Oskar Vilhelmsson
 date: '2023-11-21'
 slug: []
@@ -9,53 +9,112 @@ tags:
   - R
   - Classification
   - CART
+  - Regression
 ---
 
 
 
-# R Markdown
+# Decision trees
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-You can embed an R code chunk like this:
+- The goal is to classify or predict an outcome based on a set of predictors.
 
 
 ```r
-summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit <- lm(dist ~ speed, data = cars)
-fit
-## 
-## Call:
-## lm(formula = dist ~ speed, data = cars)
-## 
-## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932
+library(tidyverse)
+library(DAAG)
+library(party)
+library(rpart)
+library(rpart.plot)
+library(mlbench)
+library(pROC)
+library(tree)
+library(caret)
 ```
 
-# Including Plots
+## Classification Tree: Detecting email spam data
 
-You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:
 
 
 ```r
-par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
-  col = c('#0292D8', '#F7EA39', '#C4B632'),
-  init.angle = -50, border = NA
-)
+data <- spam7
+str(data)  
+## 'data.frame':	4601 obs. of  7 variables:
+##  $ crl.tot: num  278 1028 2259 191 191 ...
+##  $ dollar : num  0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ...
+##  $ bang   : num  0.778 0.372 0.276 0.137 0.135 0 0.164 0 0.181 0.244 ...
+##  $ money  : num  0 0.43 0.06 0 0 0 0 0 0.15 0 ...
+##  $ n000   : num  0 0.43 1.16 0 0 0 0 0 0 0.19 ...
+##  $ make   : num  0 0.21 0.06 0 0 0 0 0 0.15 0.06 ...
+##  $ yesno  : Factor w/ 2 levels "n","y": 2 2 2 2 2 2 2 2 2 2 ...
+table(data$yesno)
+## 
+##    n    y 
+## 2788 1813
 ```
 
-<div class="figure">
-<img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
-<p class="caption"><span id="fig:pie"></span>Figure 1: A fancy pie chart.</p>
-</div>
+The data consists of 4601 emails, 1813 of them were considered as spam emails.
+
+The variables in the dataset are:
+ - crl.tot: total length of words in capitals
+ - dollar: number of occurrences of the $ symbol.
+ - bang: number of occurrences of the ! symbol.
+ - money: number of occurrences of the word 'money'
+ - n000: number of occurrences of the string '000'
+ - make: number of occurrences of the word 'make'
+ - yesno: outcome variable; y = if spam, no = if not spam
+
+- The goal is to classify each email as spam or not spam using the decision tree.
+
+# Splitting data
+
+We need to split data into training and testing for our model. 
+
+
+```r
+set.seed(1337)
+index <- sample(2, nrow(data), replace = T, prob = c(0.5, 0.5))
+train <- data[index == 1,]
+test <- data[index == 2,]
+```
+
+# The tree  
+
+```r
+tree <- rpart(yesno ~., data = train)
+rpart.plot(tree)
+```
+
+<img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+
+
+
+
+
+```r
+printcp(tree)
+## 
+## Classification tree:
+## rpart(formula = yesno ~ ., data = train)
+## 
+## Variables actually used in tree construction:
+## [1] bang    crl.tot dollar  money  
+## 
+## Root node error: 905/2267 = 0.39921
+## 
+## n= 2267 
+## 
+##         CP nsplit rel error  xerror     xstd
+## 1 0.498343      0   1.00000 1.00000 0.025765
+## 2 0.070718      1   0.50166 0.50166 0.021055
+## 3 0.059669      2   0.43094 0.45746 0.020327
+## 4 0.026519      3   0.37127 0.39227 0.019120
+## 5 0.014365      4   0.34475 0.37569 0.018785
+## 6 0.010000      5   0.33039 0.35359 0.018318
+plotcp(tree)
+```
+
+<img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+
+
+
+
