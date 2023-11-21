@@ -1,5 +1,5 @@
 ---
-title: Regression Tree
+title: Regression Tree for data x
 author: Oskar Vilhelmsson
 date: '2023-11-21'
 slug: []
