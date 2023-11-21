@@ -70,17 +70,35 @@ test <- data[index == 2,]
 tree <- rpart(yesno ~., data = train)
 rpart.plot(tree)
 ```
+
+
 The root node is dollar and if dollar is > 0.046 then the email is classified as spam. 27% of the data has dollar > 0.046 and 88% of that data is spam.
 
-The second node is bang, and the splitting criteria is bang < 0.18. 
+The second node is bang. 73% percent of the data goes through this splitting criteria that is is bang < 0.18. If bang > 0.18 and crl.tot > 78 the email is classified as spam. If bang > 0.18 and crl.tot < 78 then the data goes through an another node: bang < 1.1. If bang > 1.1 then the classification is spam. If bang < 1.1 the classification is not spam.
+
+The remaining data that has bang < 0.18 goes through the last node: money < 0.01. If money is > 0.01 the classification becomes spam, and if money is less than 0.01 the classification becomes no spam.
 
 
+# The complexity parameter
 
 ```{r}
 printcp(tree)
-plotcp(tree)
 ```
 
 
 
+
+
+```{r}
+plotcp(tree)
+```
+
+
+```{r}
+p <- predict(tree, train, type = 'class')
+confusionMatrix(p, train$yesno)
+
+pp <- predict(tree, test, type = 'class')
+confusionMatrix(pp, test$yesno)
+```
 
