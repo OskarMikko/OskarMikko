@@ -1,19 +1,21 @@
 ---
-title: Tree-based classification and regression
-author: Oskar Vilhelmsson
-date: '2023-11-21'
-slug: []
-categories:
-  - Machine Learning
+title: "Tree-based classification"
+author: "Oskar Vilhelmsson"
+date: "2023-11-21"
+output:
+  html_document:
+    df_print: paged
+categories: Machine Learning
 tags:
-  - R
-  - Classification
-  - CART
-  - Regression
+- R
+- Classification
+- CART
+- Regression
+slug: []
 ---
 
 ```{r setup, include=FALSE,}
-knitr::opts_chunk$set(collapse = TRUE,warning=FALSE,message=F,fig.path = "static")
+knitr::opts_chunk$set(collapse = TRUE,warning=FALSE,message=F)
 ```
 
 # Decision trees
@@ -68,17 +70,38 @@ test <- data[index == 2,]
 # The tree  
 ```{r}
 tree <- rpart(yesno ~., data = train)
-rpart.plot(tree)
+rpart.plot(tree,type=4,extra=101)
+
 ```
+
+
+The root node is dollar and if dollar is > 0.046 then the email is classified as spam. 27% of the data has dollar > 0.046 and 88% of that data is spam.
+
+The second node is bang. 73% percent of the data goes through this splitting criteria that is is bang < 0.18. If bang > 0.18 and crl.tot > 78 the email is classified as spam. If bang > 0.18 and crl.tot < 78 then the data goes through an another node: bang < 1.1. If bang > 1.1 then the classification is spam. If bang < 1.1 the classification is not spam.
+
+The remaining data that has bang < 0.18 goes through the last node: money < 0.01. If money is > 0.01 the classification becomes spam, and if money is less than 0.01 the classification becomes no spam.
+
+
+# The complexity parameter
+
+```{r}
+printcp(tree)
+```
+
 
 
 
 
 ```{r}
-printcp(tree)
 plotcp(tree)
 ```
 
 
+```{r}
+p <- predict(tree, train, type = 'class')
+confusionMatrix(p, train$yesno)
 
+pp <- predict(tree, test, type = 'class')
+confusionMatrix(pp, test$yesno)
+```
 

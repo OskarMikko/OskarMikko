@@ -1,8 +1,10 @@
 ---
-title: "Tree-based classification and regression"
+title: "Tree-based classification"
 author: "Oskar Vilhelmsson"
 date: "2023-11-21"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 categories: Machine Learning
 tags:
 - R
@@ -81,7 +83,7 @@ test <- data[index == 2,]
 
 ```r
 tree <- rpart(yesno ~., data = train)
-rpart.plot(tree)
+rpart.plot(tree,type=4,extra=101)
 ```
 
 <img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/unnamed-chunk-4-1.png" width="672" />

@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on </title>
-    <link>/tags/</link>
-    <description>Recent content in Tags on </description>
+    <title>Tags on Oskar Mikko&#39;s Blog</title>
+    <link>https://oskarmikko.netlify.app/tags/</link>
+    <description>Recent content in Tags on Oskar Mikko&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 21 Nov 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CART</title>
-      <link>/tags/cart/</link>
-      <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>/tags/cart/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Classification</title>
-      <link>/tags/classification/</link>
-      <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>/tags/classification/</guid>
-      <description></description>
-    </item>
+    <lastBuildDate>Wed, 22 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://oskarmikko.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>R</title>
-      <link>/tags/r/</link>
-      <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>/tags/r/</guid>
+      <link>https://oskarmikko.netlify.app/tags/r/</link>
+      <pubDate>Wed, 22 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://oskarmikko.netlify.app/tags/r/</guid>
       <description></description>
     </item>
     <item>
       <title>Regression</title>
-      <link>/tags/regression/</link>
+      <link>https://oskarmikko.netlify.app/tags/regression/</link>
+      <pubDate>Wed, 22 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://oskarmikko.netlify.app/tags/regression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CART</title>
+      <link>https://oskarmikko.netlify.app/tags/cart/</link>
       <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>/tags/regression/</guid>
+      <guid>https://oskarmikko.netlify.app/tags/cart/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Classification</title>
+      <link>https://oskarmikko.netlify.app/tags/classification/</link>
+      <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://oskarmikko.netlify.app/tags/classification/</guid>
       <description></description>
     </item>
   </channel>

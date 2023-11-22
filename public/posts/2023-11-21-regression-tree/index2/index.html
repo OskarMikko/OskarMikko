@@ -1,24 +1,24 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Tree-based classification and regression // </title>
+    <title>Tree-based classification // Oskar Mikko&#39;s Blog</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.120.4">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="John Doe" />
+    <meta name="author" content="Oskar Mikko Vilhelmsson" />
     <meta name="description" content="" />
     <link rel="stylesheet" href="/css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tree-based classification and regression"/>
+<meta name="twitter:title" content="Tree-based classification"/>
 <meta name="twitter:description" content="Decision trees The goal is to classify or predict an outcome based on a set of predictors. library(tidyverse) library(DAAG) library(party) library(rpart) library(rpart.plot) library(mlbench) library(pROC) library(tree) library(caret) Classification Tree: Detecting email spam data data &lt;- spam7 str(data) ## &#39;data.frame&#39;:	4601 obs. of 7 variables: ## $ crl.tot: num 278 1028 2259 191 191 ... ## $ dollar : num 0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ... ## $ bang : num 0."/>
 
-    <meta property="og:title" content="Tree-based classification and regression" />
+    <meta property="og:title" content="Tree-based classification" />
 <meta property="og:description" content="Decision trees The goal is to classify or predict an outcome based on a set of predictors. library(tidyverse) library(DAAG) library(party) library(rpart) library(rpart.plot) library(mlbench) library(pROC) library(tree) library(caret) Classification Tree: Detecting email spam data data &lt;- spam7 str(data) ## &#39;data.frame&#39;:	4601 obs. of 7 variables: ## $ crl.tot: num 278 1028 2259 191 191 ... ## $ dollar : num 0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ... ## $ bang : num 0." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2023-11-21-regression-tree/index2/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://oskarmikko.netlify.app/posts/2023-11-21-regression-tree/index2/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-11-21T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-11-21T00:00:00+00:00" />
 
@@ -27,15 +27,31 @@
   </head>
   <body>
     <header class="app-header">
-      <a href="/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
-      <span class="app-header-title"></span>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <a href="https://oskarmikko.netlify.app/"><img class="app-header-avatar" src="/avatar.jpg" alt="Oskar Mikko Vilhelmsson" /></a>
+      <span class="app-header-title">Oskar Mikko&#39;s Blog</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+      </nav>
+      <p>This is my blog for my data science projects.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/OskarMikko" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
     </header>
     <main class="app-container">
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Tree-based classification and regression</h1>
+      <h1 class ="post-title">Tree-based classification</h1>
       <div class="post-meta">
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -49,17 +65,17 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          2 min read
+          4 min read
         </div>
         <div>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
   <title>tag</title>
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
-              <a class="tag" href="/tags/r/">R</a>
-              <a class="tag" href="/tags/classification/">Classification</a>
-              <a class="tag" href="/tags/cart/">CART</a>
-              <a class="tag" href="/tags/regression/">Regression</a>
+              <a class="tag" href="https://oskarmikko.netlify.app/tags/r/">R</a>
+              <a class="tag" href="https://oskarmikko.netlify.app/tags/classification/">Classification</a>
+              <a class="tag" href="https://oskarmikko.netlify.app/tags/cart/">CART</a>
+              <a class="tag" href="https://oskarmikko.netlify.app/tags/regression/">Regression</a>
         </div>
       </div>
     </header>
@@ -128,8 +144,12 @@
 </span></span><span style="display:flex;"><span>test <span style="color:#f92672">&lt;-</span> data[index <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>,]
 </span></span></code></pre></div><h1 id="the-tree">The tree</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>tree <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">rpart</span>(yesno <span style="color:#f92672">~</span>., data <span style="color:#f92672">=</span> train)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">rpart.plot</span>(tree)
-</span></span></code></pre></div><img src="staticunnamed-chunk-4-1.png" width="672" />
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">rpart.plot</span>(tree,type<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>,extra<span style="color:#f92672">=</span><span style="color:#ae81ff">101</span>)
+</span></span></code></pre></div><img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<p>The root node is dollar and if dollar is &gt; 0.046 then the email is classified as spam. 27% of the data has dollar &gt; 0.046 and 88% of that data is spam.</p>
+<p>The second node is bang. 73% percent of the data goes through this splitting criteria that is is bang &lt; 0.18. If bang &gt; 0.18 and crl.tot &gt; 78 the email is classified as spam. If bang &gt; 0.18 and crl.tot &lt; 78 then the data goes through an another node: bang &lt; 1.1. If bang &gt; 1.1 then the classification is spam. If bang &lt; 1.1 the classification is not spam.</p>
+<p>The remaining data that has bang &lt; 0.18 goes through the last node: money &lt; 0.01. If money is &gt; 0.01 the classification becomes spam, and if money is less than 0.01 the classification becomes no spam.</p>
+<h1 id="the-complexity-parameter">The complexity parameter</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">printcp</span>(tree)
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## Classification tree:</span>
@@ -149,9 +169,68 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## 4 0.026519      3   0.37127 0.39227 0.019120</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## 5 0.014365      4   0.34475 0.37569 0.018785</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## 6 0.010000      5   0.33039 0.35359 0.018318</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">plotcp</span>(tree)
-</span></span></code></pre></div><img src="staticunnamed-chunk-5-1.png" width="672" />
-
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">plotcp</span>(tree)
+</span></span></code></pre></div><img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>p <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">predict</span>(tree, train, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;class&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">confusionMatrix</span>(p, train<span style="color:#f92672">$</span>yesno)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Confusion Matrix and Statistics</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##           Reference</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Prediction    n    y</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##          n 1228  165</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##          y  134  740</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                                           </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                Accuracy : 0.8681          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                  95% CI : (0.8535, 0.8818)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##     No Information Rate : 0.6008          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##     P-Value [Acc &gt; NIR] : &lt; 2e-16         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                                           </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                   Kappa : 0.7235          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                                           </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  Mcnemar&#39;s Test P-Value : 0.08275         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                                           </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##             Sensitivity : 0.9016          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##             Specificity : 0.8177          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##          Pos Pred Value : 0.8816          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##          Neg Pred Value : 0.8467          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##              Prevalence : 0.6008          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##          Detection Rate : 0.5417          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##    Detection Prevalence : 0.6145          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##       Balanced Accuracy : 0.8596          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                                           </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##        &#39;Positive&#39; Class : n               </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pp <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">predict</span>(tree, test, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;class&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">confusionMatrix</span>(pp, test<span style="color:#f92672">$</span>yesno)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Confusion Matrix and Statistics</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##           Reference</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Prediction    n    y</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##          n 1274  200</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##          y  152  708</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                                          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                Accuracy : 0.8492         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                  95% CI : (0.834, 0.8635)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##     No Information Rate : 0.611          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##     P-Value [Acc &gt; NIR] : &lt; 2e-16        </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                                          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                   Kappa : 0.6797         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                                          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  Mcnemar&#39;s Test P-Value : 0.01224        </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                                          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##             Sensitivity : 0.8934         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##             Specificity : 0.7797         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##          Pos Pred Value : 0.8643         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##          Neg Pred Value : 0.8233         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##              Prevalence : 0.6110         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##          Detection Rate : 0.5458         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##    Detection Prevalence : 0.6315         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##       Balanced Accuracy : 0.8366         </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##                                          </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##        &#39;Positive&#39; Class : n              </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
+</span></span></code></pre></div>
     </div>
     <div class="post-footer">
       
