@@ -1,60 +1,76 @@
 ---
-title: Multiple Linear Regression
+title: Tree-based classification
 author: Oskar Vilhelmsson
 date: '2023-11-22'
 slug: []
 categories:
-  - Statistics
+  - Machine Learning
 tags:
   - R
+  - CART
   - Regression
 ---
 
 
 
-# R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+```r
+library(tidyverse)
+library(DAAG)
+library(party)
+library(rpart)
+library(rpart.plot)
+library(mlbench)
+library(pROC)
+library(tree)
+library(caret)
+```
 
-You can embed an R code chunk like this:
+# Decision trees
+
+- The goal is to predict an outcome based on a set of predictors.
+
+## Regression Tree: Predicting median value of Boston homes
 
 
 ```r
-summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit <- lm(dist ~ speed, data = cars)
-fit
-## 
-## Call:
-## lm(formula = dist ~ speed, data = cars)
-## 
-## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932
+data('BostonHousing')
+data <- BostonHousing
+str(data)
+## 'data.frame':	506 obs. of  14 variables:
+##  $ crim   : num  0.00632 0.02731 0.02729 0.03237 0.06905 ...
+##  $ zn     : num  18 0 0 0 0 0 12.5 12.5 12.5 12.5 ...
+##  $ indus  : num  2.31 7.07 7.07 2.18 2.18 2.18 7.87 7.87 7.87 7.87 ...
+##  $ chas   : Factor w/ 2 levels "0","1": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ nox    : num  0.538 0.469 0.469 0.458 0.458 0.458 0.524 0.524 0.524 0.524 ...
+##  $ rm     : num  6.58 6.42 7.18 7 7.15 ...
+##  $ age    : num  65.2 78.9 61.1 45.8 54.2 58.7 66.6 96.1 100 85.9 ...
+##  $ dis    : num  4.09 4.97 4.97 6.06 6.06 ...
+##  $ rad    : num  1 2 2 3 3 3 5 5 5 5 ...
+##  $ tax    : num  296 242 242 222 222 222 311 311 311 311 ...
+##  $ ptratio: num  15.3 17.8 17.8 18.7 18.7 18.7 15.2 15.2 15.2 15.2 ...
+##  $ b      : num  397 397 393 395 397 ...
+##  $ lstat  : num  4.98 9.14 4.03 2.94 5.33 ...
+##  $ medv   : num  24 21.6 34.7 33.4 36.2 28.7 22.9 27.1 16.5 18.9 ...
 ```
 
-# Including Plots
+The data contains 506 observations and 14 different variables:
 
-You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:
+- crim: per capita crime rate by town
+- zn: proportion of residential land zoned for lots over 25,000 sq.ft
+- indus: proportion of non-retail business acres per town
+- chas: Charles River dummy varaible(1= if tract bounds river, 0 otherwise)
+- nox: nitric oxides concentraion
+- rm: averigare number of rooms per dwelling
+- age: prortion of owner-occupied units built prior to 1940
+- dis: weighted distances to five Boston employment centres
+- rad: index of accessibility to radial highways
+- tax: full-value property-tax rate per USD 10,000
+- ptratio: pupil-teacher ratio by town
+- b: `\(1000*(B-0.63)^2\)` where B is the proportion of blacks by town
+- lstat: percentage of lower status of the population
+- medv: median value of owner-occupied homes in USD 1000's.
+
+where medv is the predictor variable.
 
 
-```r
-par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
-  col = c('#0292D8', '#F7EA39', '#C4B632'),
-  init.angle = -50, border = NA
-)
-```
-
-<div class="figure">
-<img src="{{< blogdown/postref >}}index_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
-<p class="caption"><span id="fig:pie"></span>Figure 1: A fancy pie chart.</p>
-</div>

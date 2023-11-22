@@ -18,7 +18,7 @@ slug: []
 
 # Decision trees
 
-- The goal is to classify or predict an outcome based on a set of predictors.
+- The goal is to classify an outcome based on a set of predictors.
 
 
 ```r
