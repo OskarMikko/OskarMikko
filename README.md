@@ -1,5 +1,8 @@
 ### Hi there 👋
 
+This is my blog where I do different data analysis and data science projects.
+
+
 <!--
 **OskarMikko/OskarMikko** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
