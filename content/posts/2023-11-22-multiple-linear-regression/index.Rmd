@@ -1,7 +1,7 @@
 ---
-title: Tree-based classification
-author: Oskar Vilhelmsson
-date: '2023-11-22'
+title: "Tree-based Regression"
+author: "Oskar Mikko"
+date: '2023-11-25'
 slug: []
 categories:
   - Machine Learning

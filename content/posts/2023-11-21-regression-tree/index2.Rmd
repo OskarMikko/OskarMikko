@@ -1,6 +1,6 @@
 ---
 title: "Tree-based classification"
-author: "Oskar Vilhelmsson"
+author: "Oskar Mikko"
 date: "2023-11-21"
 output:
   html_document:

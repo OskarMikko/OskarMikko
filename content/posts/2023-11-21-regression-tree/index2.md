@@ -1,6 +1,6 @@
 ---
 title: "Tree-based classification"
-author: "Oskar Vilhelmsson"
+author: "Oskar Mikko"
 date: "2023-11-21"
 output:
   html_document:
@@ -96,42 +96,7 @@ The second node is bang. 73% percent of the data goes through this splitting cri
 The remaining data that has bang < 0.18 goes through the last node: money < 0.01. If money is > 0.01 the classification becomes spam, and if money is less than 0.01 the classification becomes no spam.
 
 
-# The complexity parameter
-
-
-```r
-printcp(tree)
-## 
-## Classification tree:
-## rpart(formula = yesno ~ ., data = train)
-## 
-## Variables actually used in tree construction:
-## [1] bang    crl.tot dollar  money  
-## 
-## Root node error: 905/2267 = 0.39921
-## 
-## n= 2267 
-## 
-##         CP nsplit rel error  xerror     xstd
-## 1 0.498343      0   1.00000 1.00000 0.025765
-## 2 0.070718      1   0.50166 0.50166 0.021055
-## 3 0.059669      2   0.43094 0.45746 0.020327
-## 4 0.026519      3   0.37127 0.39227 0.019120
-## 5 0.014365      4   0.34475 0.37569 0.018785
-## 6 0.010000      5   0.33039 0.35359 0.018318
-```
-
-
-
-
-
-
-```r
-plotcp(tree)
-```
-
-<img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/unnamed-chunk-6-1.png" width="672" />
-
+# Confusion Matrix for Training Data
 
 
 ```r
@@ -164,7 +129,13 @@ confusionMatrix(p, train$yesno)
 ##                                           
 ##        'Positive' Class : n               
 ## 
+```
+The accuracy of the model is 86.81%. 
 
+# Confusion Matrix for Testing Data
+
+
+```r
 pp <- predict(tree, test, type = 'class')
 confusionMatrix(pp, test$yesno)
 ## Confusion Matrix and Statistics
@@ -195,4 +166,14 @@ confusionMatrix(pp, test$yesno)
 ##        'Positive' Class : n              
 ## 
 ```
+The accuracy for the testing data is 84.92%, which is a little lower than for the training data. 
+
+But overall the performance looks similar on both training and testing data which suggests that there are no signs of overfitting. 
+
+
+
+
+
+
+
 
