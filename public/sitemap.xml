@@ -3,28 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://oskarmikko.netlify.app/categories/</loc>
-    <lastmod>2023-11-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://oskarmikko.netlify.app/posts/2023-11-22-multiple-linear-regression/</loc>
-    <lastmod>2023-11-22T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://oskarmikko.netlify.app/</loc>
-    <lastmod>2023-11-22T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://oskarmikko.netlify.app/posts/</loc>
-    <lastmod>2023-11-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://oskarmikko.netlify.app/tags/r/</loc>
-    <lastmod>2023-11-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://oskarmikko.netlify.app/tags/regression/</loc>
-    <lastmod>2023-11-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://oskarmikko.netlify.app/categories/statistics/</loc>
-    <lastmod>2023-11-22T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://oskarmikko.netlify.app/tags/</loc>
-    <lastmod>2023-11-22T00:00:00+00:00</lastmod>
+    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://oskarmikko.netlify.app/categories/visualization/</loc>
+    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://oskarmikko.netlify.app/posts/2023-11-24-visualization-on-london-bike-sharing/</loc>
+    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://oskarmikko.netlify.app/tags/visulization/</loc>
+    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://oskarmikko.netlify.app/tags/cart/</loc>
     <lastmod>2023-11-21T00:00:00+00:00</lastmod>
@@ -33,6 +30,12 @@
     <lastmod>2023-11-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://oskarmikko.netlify.app/categories/machine-learning/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://oskarmikko.netlify.app/tags/r/</loc>
+    <lastmod>2023-11-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://oskarmikko.netlify.app/tags/regression/</loc>
     <lastmod>2023-11-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://oskarmikko.netlify.app/posts/2023-11-21-regression-tree/index2/</loc>

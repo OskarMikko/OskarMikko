@@ -13,10 +13,10 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tree-based classification"/>
-<meta name="twitter:description" content="Decision trees The goal is to classify or predict an outcome based on a set of predictors. library(tidyverse) library(DAAG) library(party) library(rpart) library(rpart.plot) library(mlbench) library(pROC) library(tree) library(caret) Classification Tree: Detecting email spam data data &lt;- spam7 str(data) ## &#39;data.frame&#39;:	4601 obs. of 7 variables: ## $ crl.tot: num 278 1028 2259 191 191 ... ## $ dollar : num 0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ... ## $ bang : num 0."/>
+<meta name="twitter:description" content="Decision trees The goal is to classify an outcome based on a set of predictors. library(tidyverse) library(DAAG) library(party) library(rpart) library(rpart.plot) library(mlbench) library(pROC) library(tree) library(caret) Classification Tree: Detecting email spam data data &lt;- spam7 str(data) ## &#39;data.frame&#39;:	4601 obs. of 7 variables: ## $ crl.tot: num 278 1028 2259 191 191 ... ## $ dollar : num 0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ... ## $ bang : num 0."/>
 
     <meta property="og:title" content="Tree-based classification" />
-<meta property="og:description" content="Decision trees The goal is to classify or predict an outcome based on a set of predictors. library(tidyverse) library(DAAG) library(party) library(rpart) library(rpart.plot) library(mlbench) library(pROC) library(tree) library(caret) Classification Tree: Detecting email spam data data &lt;- spam7 str(data) ## &#39;data.frame&#39;:	4601 obs. of 7 variables: ## $ crl.tot: num 278 1028 2259 191 191 ... ## $ dollar : num 0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ... ## $ bang : num 0." />
+<meta property="og:description" content="Decision trees The goal is to classify an outcome based on a set of predictors. library(tidyverse) library(DAAG) library(party) library(rpart) library(rpart.plot) library(mlbench) library(pROC) library(tree) library(caret) Classification Tree: Detecting email spam data data &lt;- spam7 str(data) ## &#39;data.frame&#39;:	4601 obs. of 7 variables: ## $ crl.tot: num 278 1028 2259 191 191 ... ## $ dollar : num 0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ... ## $ bang : num 0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://oskarmikko.netlify.app/posts/2023-11-21-regression-tree/index2/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-11-21T00:00:00+00:00" />
@@ -35,7 +35,7 @@
           
           <a class="app-header-menu-item" href="/tags/">Tags</a>
       </nav>
-      <p>This is my blog for my data science projects.</p>
+      <p>This is my blog for my data analytics projects.</p>
       <div class="app-header-social">
         
           <a href="https://github.com/OskarMikko" target="_blank" rel="noreferrer noopener me">
@@ -82,7 +82,7 @@
     <div class="post-content">
       <h1 id="decision-trees">Decision trees</h1>
 <ul>
-<li>The goal is to classify or predict an outcome based on a set of predictors.</li>
+<li>The goal is to classify an outcome based on a set of predictors.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(tidyverse)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(DAAG)
@@ -149,28 +149,7 @@
 <p>The root node is dollar and if dollar is &gt; 0.046 then the email is classified as spam. 27% of the data has dollar &gt; 0.046 and 88% of that data is spam.</p>
 <p>The second node is bang. 73% percent of the data goes through this splitting criteria that is is bang &lt; 0.18. If bang &gt; 0.18 and crl.tot &gt; 78 the email is classified as spam. If bang &gt; 0.18 and crl.tot &lt; 78 then the data goes through an another node: bang &lt; 1.1. If bang &gt; 1.1 then the classification is spam. If bang &lt; 1.1 the classification is not spam.</p>
 <p>The remaining data that has bang &lt; 0.18 goes through the last node: money &lt; 0.01. If money is &gt; 0.01 the classification becomes spam, and if money is less than 0.01 the classification becomes no spam.</p>
-<h1 id="the-complexity-parameter">The complexity parameter</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">printcp</span>(tree)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## Classification tree:</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## rpart(formula = yesno ~ ., data = train)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## Variables actually used in tree construction:</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## [1] bang    crl.tot dollar  money  </span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## Root node error: 905/2267 = 0.39921</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## n= 2267 </span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">##         CP nsplit rel error  xerror     xstd</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## 1 0.498343      0   1.00000 1.00000 0.025765</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## 2 0.070718      1   0.50166 0.50166 0.021055</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## 3 0.059669      2   0.43094 0.45746 0.020327</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## 4 0.026519      3   0.37127 0.39227 0.019120</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## 5 0.014365      4   0.34475 0.37569 0.018785</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## 6 0.010000      5   0.33039 0.35359 0.018318</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">plotcp</span>(tree)
-</span></span></code></pre></div><img src="/posts/2023-11-21-regression-tree/index2_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<h1 id="confusion-matrix-for-training-data">Confusion Matrix for Training Data</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>p <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">predict</span>(tree, train, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;class&#39;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">confusionMatrix</span>(p, train<span style="color:#f92672">$</span>yesno)
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## Confusion Matrix and Statistics</span>
@@ -200,8 +179,9 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##                                           </span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##        &#39;Positive&#39; Class : n               </span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>pp <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">predict</span>(tree, test, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;class&#39;</span>)
+</span></span></code></pre></div><p>The accuracy of the model is 86.81%.</p>
+<h1 id="confusion-matrix-for-testing-data">Confusion Matrix for Testing Data</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>pp <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">predict</span>(tree, test, type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;class&#39;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">confusionMatrix</span>(pp, test<span style="color:#f92672">$</span>yesno)
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## Confusion Matrix and Statistics</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
@@ -230,7 +210,9 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##                                          </span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##        &#39;Positive&#39; Class : n              </span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>The accuracy for the testing data is 84.92%, which is a little lower than for the training data.</p>
+<p>But overall the performance looks similar on both training and testing data which suggests that there are no signs of overfitting.</p>
+
     </div>
     <div class="post-footer">
       

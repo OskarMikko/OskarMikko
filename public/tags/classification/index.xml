@@ -13,7 +13,7 @@
       <link>https://oskarmikko.netlify.app/posts/2023-11-21-regression-tree/index2/</link>
       <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://oskarmikko.netlify.app/posts/2023-11-21-regression-tree/index2/</guid>
-      <description>Decision trees The goal is to classify or predict an outcome based on a set of predictors. library(tidyverse) library(DAAG) library(party) library(rpart) library(rpart.plot) library(mlbench) library(pROC) library(tree) library(caret) Classification Tree: Detecting email spam data data &amp;lt;- spam7 str(data) ## &amp;#39;data.frame&amp;#39;:	4601 obs. of 7 variables: ## $ crl.tot: num 278 1028 2259 191 191 ... ## $ dollar : num 0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ... ## $ bang : num 0.</description>
+      <description>Decision trees The goal is to classify an outcome based on a set of predictors. library(tidyverse) library(DAAG) library(party) library(rpart) library(rpart.plot) library(mlbench) library(pROC) library(tree) library(caret) Classification Tree: Detecting email spam data data &amp;lt;- spam7 str(data) ## &amp;#39;data.frame&amp;#39;:	4601 obs. of 7 variables: ## $ crl.tot: num 278 1028 2259 191 191 ... ## $ dollar : num 0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ... ## $ bang : num 0.</description>
     </item>
   </channel>
 </rss>

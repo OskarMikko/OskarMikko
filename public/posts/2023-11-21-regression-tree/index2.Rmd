@@ -1,10 +1,8 @@
 ---
 title: "Tree-based classification"
-author: "Oskar Vilhelmsson"
+author: "Oskar Mikko"
 date: "2023-11-21"
-output:
-  html_document:
-    df_print: paged
+slug: []
 categories: Machine Learning
 tags:
 - R
@@ -20,7 +18,7 @@ knitr::opts_chunk$set(collapse = TRUE,warning=FALSE,message=F)
 
 # Decision trees
 
-- The goal is to classify or predict an outcome based on a set of predictors.
+- The goal is to classify an outcome based on a set of predictors.
 
 ```{r}
 library(tidyverse)
@@ -82,26 +80,29 @@ The second node is bang. 73% percent of the data goes through this splitting cri
 The remaining data that has bang < 0.18 goes through the last node: money < 0.01. If money is > 0.01 the classification becomes spam, and if money is less than 0.01 the classification becomes no spam.
 
 
-# The complexity parameter
-
-```{r}
-printcp(tree)
-```
-
-
-
-
-
-```{r}
-plotcp(tree)
-```
-
+# Confusion Matrix for Training Data
 
 ```{r}
 p <- predict(tree, train, type = 'class')
 confusionMatrix(p, train$yesno)
 
+```
+The accuracy of the model is 86.81%. 
+
+# Confusion Matrix for Testing Data
+
+```{r}
 pp <- predict(tree, test, type = 'class')
 confusionMatrix(pp, test$yesno)
 ```
+The accuracy for the testing data is 84.92%, which is a little lower than for the training data. 
+
+But overall the performance looks similar on both training and testing data which suggests that there are no signs of overfitting. 
+
+
+
+
+
+
+
 

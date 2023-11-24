@@ -1,0 +1,46 @@
+---
+title: Visualization on London Bike Sharing
+author: Oskar Mikko
+date: '2023-11-24'
+slug: []
+categories:
+  - Visualization
+tags:
+  - Visulization
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE,warning=FALSE,message=F)
+```
+
+
+# get data    
+```{r}
+library(tidyverse)
+data <- read.csv("C:/Users/Oskar/Documents/R/OskarMikko/OskarMikko/data/london_bike_sharing_data/london_merged.csv")
+
+head(data)
+data$date <- as.Date(data$timestamp) 
+str(data)
+
+?as.Date
+
+data %>%
+  group_by(date,as.factor(weather_code)) %>%
+  summarise(cnt)
+
+ggplot(data,
+       aes(x=date,y=cnt,group=as.factor(weather_code))) + geom_line()
+```
+
+
+# How does weather affect bike usage?
+
+```{r}
+
+
+
+```
+
+
+

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Visualization on London Bike Sharing // Oskar Mikko&#39;s Blog</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.120.4">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Oskar Mikko Vilhelmsson" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Visualization on London Bike Sharing"/>
+<meta name="twitter:description" content="get data library(tidyverse) data &lt;- read.csv(&#34;C:/Users/Oskar/Documents/R/OskarMikko/OskarMikko/data/london_bike_sharing_data/london_merged.csv&#34;) head(data) ## timestamp cnt t1 t2 hum wind_speed weather_code is_holiday ## 1 2015-01-04 00:00:00 182 3.0 2.0 93.0 6.0 3 0 ## 2 2015-01-04 01:00:00 138 3.0 2.5 93.0 5.0 1 0 ## 3 2015-01-04 02:00:00 134 2.5 2.5 96.5 0.0 1 0 ## 4 2015-01-04 03:00:00 72 2.0 2.0 100.0 0.0 1 0 ## 5 2015-01-04 04:00:00 47 2.0 0.0 93.0 6.5 1 0 ## 6 2015-01-04 05:00:00 46 2."/>
+
+    <meta property="og:title" content="Visualization on London Bike Sharing" />
+<meta property="og:description" content="get data library(tidyverse) data &lt;- read.csv(&#34;C:/Users/Oskar/Documents/R/OskarMikko/OskarMikko/data/london_bike_sharing_data/london_merged.csv&#34;) head(data) ## timestamp cnt t1 t2 hum wind_speed weather_code is_holiday ## 1 2015-01-04 00:00:00 182 3.0 2.0 93.0 6.0 3 0 ## 2 2015-01-04 01:00:00 138 3.0 2.5 93.0 5.0 1 0 ## 3 2015-01-04 02:00:00 134 2.5 2.5 96.5 0.0 1 0 ## 4 2015-01-04 03:00:00 72 2.0 2.0 100.0 0.0 1 0 ## 5 2015-01-04 04:00:00 47 2.0 0.0 93.0 6.5 1 0 ## 6 2015-01-04 05:00:00 46 2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://oskarmikko.netlify.app/posts/2023-11-24-visualization-on-london-bike-sharing/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-24T00:00:00+00:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://oskarmikko.netlify.app/"><img class="app-header-avatar" src="/avatar.jpg" alt="Oskar Mikko Vilhelmsson" /></a>
+      <span class="app-header-title">Oskar Mikko&#39;s Blog</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+      </nav>
+      <p>This is my blog for my data analytics projects.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/OskarMikko" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Visualization on London Bike Sharing</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Nov 24, 2023
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://oskarmikko.netlify.app/tags/visulization/">Visulization</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h1 id="get-data">get data</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(tidyverse)
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read.csv</span>(<span style="color:#e6db74">&#34;C:/Users/Oskar/Documents/R/OskarMikko/OskarMikko/data/london_bike_sharing_data/london_merged.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">head</span>(data)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##             timestamp cnt  t1  t2   hum wind_speed weather_code is_holiday</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 1 2015-01-04 00:00:00 182 3.0 2.0  93.0        6.0            3          0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 2 2015-01-04 01:00:00 138 3.0 2.5  93.0        5.0            1          0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 3 2015-01-04 02:00:00 134 2.5 2.5  96.5        0.0            1          0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 4 2015-01-04 03:00:00  72 2.0 2.0 100.0        0.0            1          0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 5 2015-01-04 04:00:00  47 2.0 0.0  93.0        6.5            1          0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 6 2015-01-04 05:00:00  46 2.0 2.0  93.0        4.0            1          0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##   is_weekend season</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 1          1      3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 2          1      3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 3          1      3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 4          1      3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 5          1      3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 6          1      3</span>
+</span></span><span style="display:flex;"><span>data<span style="color:#f92672">$</span>date <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">as.Date</span>(data<span style="color:#f92672">$</span>timestamp) 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">str</span>(data)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## &#39;data.frame&#39;:	17414 obs. of  11 variables:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  $ timestamp   : chr  &#34;2015-01-04 00:00:00&#34; &#34;2015-01-04 01:00:00&#34; &#34;2015-01-04 02:00:00&#34; &#34;2015-01-04 03:00:00&#34; ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  $ cnt         : int  182 138 134 72 47 46 51 75 131 301 ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  $ t1          : num  3 3 2.5 2 2 2 1 1 1.5 2 ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  $ t2          : num  2 2.5 2.5 2 0 2 -1 -1 -1 -0.5 ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  $ hum         : num  93 93 96.5 100 93 93 100 100 96.5 100 ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  $ wind_speed  : num  6 5 0 0 6.5 4 7 7 8 9 ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  $ weather_code: num  3 1 1 1 1 1 4 4 4 3 ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  $ is_holiday  : num  0 0 0 0 0 0 0 0 0 0 ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  $ is_weekend  : num  1 1 1 1 1 1 1 1 1 1 ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  $ season      : num  3 3 3 3 3 3 3 3 3 3 ...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  $ date        : Date, format: &#34;2015-01-04&#34; &#34;2015-01-04&#34; ...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">?</span>as.Date
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">group_by</span>(date,<span style="color:#a6e22e">as.factor</span>(weather_code)) <span style="color:#f92672">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">summarise</span>(cnt)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## # A tibble: 17,414 × 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## # Groups:   date, as.factor(weather_code) [2,654]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##    date       `as.factor(weather_code)`   cnt</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##    &lt;date&gt;     &lt;fct&gt;                     &lt;int&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  1 2015-01-04 1                           138</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  2 2015-01-04 1                           134</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  3 2015-01-04 1                            72</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  4 2015-01-04 1                            47</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  5 2015-01-04 1                            46</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  6 2015-01-04 3                           182</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  7 2015-01-04 3                           301</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  8 2015-01-04 3                           528</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  9 2015-01-04 3                           727</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 10 2015-01-04 3                           916</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## # ℹ 17,404 more rows</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ggplot</span>(data,
+</span></span><span style="display:flex;"><span>       <span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span>date,y<span style="color:#f92672">=</span>cnt,group<span style="color:#f92672">=</span><span style="color:#a6e22e">as.factor</span>(weather_code))) <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_line</span>()
+</span></span></code></pre></div><img src="https://oskarmikko.netlify.app/posts/2023-11-24-visualization-on-london-bike-sharing/index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<h1 id="how-does-weather-affect-bike-usage">How does weather affect bike usage?</h1>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

@@ -6,23 +6,14 @@
     <description>Recent content in R on Oskar Mikko&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Nov 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://oskarmikko.netlify.app/tags/r/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Multiple Linear Regression</title>
-      <link>https://oskarmikko.netlify.app/posts/2023-11-22-multiple-linear-regression/</link>
-      <pubDate>Wed, 22 Nov 2023 00:00:00 +0000</pubDate>
-      <guid>https://oskarmikko.netlify.app/posts/2023-11-22-multiple-linear-regression/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
     <item>
       <title>Tree-based classification</title>
       <link>https://oskarmikko.netlify.app/posts/2023-11-21-regression-tree/index2/</link>
       <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
       <guid>https://oskarmikko.netlify.app/posts/2023-11-21-regression-tree/index2/</guid>
-      <description>Decision trees The goal is to classify or predict an outcome based on a set of predictors. library(tidyverse) library(DAAG) library(party) library(rpart) library(rpart.plot) library(mlbench) library(pROC) library(tree) library(caret) Classification Tree: Detecting email spam data data &amp;lt;- spam7 str(data) ## &amp;#39;data.frame&amp;#39;:	4601 obs. of 7 variables: ## $ crl.tot: num 278 1028 2259 191 191 ... ## $ dollar : num 0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ... ## $ bang : num 0.</description>
+      <description>Decision trees The goal is to classify an outcome based on a set of predictors. library(tidyverse) library(DAAG) library(party) library(rpart) library(rpart.plot) library(mlbench) library(pROC) library(tree) library(caret) Classification Tree: Detecting email spam data data &amp;lt;- spam7 str(data) ## &amp;#39;data.frame&amp;#39;:	4601 obs. of 7 variables: ## $ crl.tot: num 278 1028 2259 191 191 ... ## $ dollar : num 0 0.18 0.184 0 0 0 0.054 0 0.203 0.081 ... ## $ bang : num 0.</description>
     </item>
   </channel>
 </rss>
