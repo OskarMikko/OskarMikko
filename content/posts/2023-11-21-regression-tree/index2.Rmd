@@ -2,9 +2,7 @@
 title: "Tree-based classification"
 author: "Oskar Mikko"
 date: "2023-11-21"
-output:
-  html_document:
-    df_print: paged
+slug: []
 categories: Machine Learning
 tags:
 - R
