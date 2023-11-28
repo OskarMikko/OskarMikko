@@ -17,27 +17,38 @@ knitr::opts_chunk$set(collapse = TRUE,warning=FALSE,message=F)
 # get data    
 ```{r}
 library(tidyverse)
-data <- read.csv("C:/Users/Oskar/Documents/R/OskarMikko/OskarMikko/data/london_bike_sharing_data/london_merged.csv")
+data <- read.csv("C:/Users/Oskar/Documents/R/london_bike_sharing_data/london_merged.csv")
 
 head(data)
-data$date <- as.Date(data$timestamp) 
-str(data)
 
-?as.Date
+data <- data %>%
+  mutate(date = as.Date(data$timestamp),
+         weather_code = as.factor(data$weather_code))
 
-data %>%
-  group_by(date,as.factor(weather_code)) %>%
-  summarise(cnt)
+cnt_by_weather <- data %>%
+  group_by(weather_code) %>%
+  summarise(sum_cnt=sum(cnt),mean_cnt=mean(cnt))
+cnt_by_weather
 
-ggplot(data,
-       aes(x=date,y=cnt,group=as.factor(weather_code))) + geom_line()
+
 ```
 
 
 # How does weather affect bike usage?
 
 ```{r}
+data %>%
+  group_by(date,weather_code) %>%
+  summarize(cnt=sum(cnt)) %>%
+  ggplot( aes(x=date, y=cnt, group=weather_code, color=weather_code)) +
+    geom_line()
 
+
+data %>%
+  group_by(date) %>%
+  summarize(cnt=sum(cnt)) %>%
+  ggplot( aes(x=date, y=cnt)) +
+    geom_line() + theme_bw() + ggtitle("")
 
 
 ```

@@ -1,0 +1,124 @@
+---
+title: Analysis of Hotel Booking Cancellations
+author: Oskar Mikko
+date: '2023-11-28'
+slug: []
+categories:
+  - Data Analysis
+tags:
+  - Visulization
+  - Data Analysis
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE,warning=FALSE,message=F)
+```
+
+# Business Problem
+
+In recent years, City Hotel and Resort Hotel in Portugal have seen high cancellation rates. Each hotel is now dealing with a number of issues as a result, including fewer revenues and less than ideal hotel room use. Consequently, lowering cancellation rates is both hotels' primary goel in order to increase their efficiency in generating revenue, and for us to offer thorough business advice to adress this problem. 
+
+The analysis of hotel booking cancellations as well as other factors that have no bearing on their business and yearly revenue generation are the main topics of this report. 
+
+The data used in this case can be found at: https://www.kaggle.com/datasets/mathsian/hotel-bookings. 
+
+# Data Cleaning and Exploratory Data Analysis
+
+## An Overview of the Data
+```{r}
+library(tidyverse)
+library(knitr)
+data = read.csv("C:/Users/Oskar/Documents/R/OskarMikko/OskarMikko/static/hotel_bookings.csv")
+str(data)
+```
+
+```{r}
+reservations = as.data.frame(table(data$hotel))
+colnames(reservations) = c("Hotel","Number of Reservations")
+kable(reservations,caption = "Number of Reservations per Hotel")
+
+```
+
+The data contains 119390 observations and 32 different variables. 79 330 of the observations are City Hotel's reservations and 40 060 are Resort Hotel reservations. 
+
+
+```{r}
+data$reservation_status_date = as.Date(data$reservation_status_date)
+```
+
+### Looking for Outliers
+
+```{r}
+ggplot(data, aes(x=hotel, y=adr)) + 
+  geom_boxplot() + theme_bw() +
+  ggtitle("Boxplot for Average Daily Rate per hotel") +
+  theme(plot.title = element_text(hjust = 0.5))
+``` 
+When looking at the average daily rate we can see that there are a few outliers in the data. I'm choosing to remove the most obvious outlier which is over 5 000.
+
+```{r}
+index = data[,"adr"]<2000
+data = data[index,]
+```
+# Data Analysis and Visualizations
+
+```{r}
+kable(data %>%
+  group_by(hotel) %>%
+  summarise(canceled_percentage = round(mean(is_canceled),3)),
+  caption = "Canceling percentage")
+
+data$is_canceled <- as.factor(data$is_canceled)
+data %>%
+  group_by(hotel) %>%
+  count(is_canceled) %>%
+  ggplot(aes(x=hotel, y=n, fill=is_canceled)) +
+  geom_bar(stat="identity", position=position_dodge())+
+  scale_fill_brewer(palette="Paired")+
+  theme_minimal() + ggtitle("Reservation Status") +
+  theme(plot.title = element_text(hjust = 0.5))
+  
+```
+The percentage of canceled reservations for City Hotel is 41.7% and for Resort Hotel it is 27.8%.
+
+```{r}
+data %>%
+  group_by(reservation_status_date,hotel) %>%
+  summarise(Average_Daily_Rate = mean(adr)) %>%
+  ggplot(aes(x=reservation_status_date,y=Average_Daily_Rate,
+             group= hotel, color=hotel)) + geom_line() + theme_minimal() +
+  ggtitle("Average Daily Rate in City and Resort Hotel") +
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  scale_x_date(date_labels = "%Y (%b)")
+``` 
+The average daily rate for Resort Hotel changes more by the season; Resort Hotel typically have lower rates than City Hotel during the winter, and higher rates during the summer. Both hotels had their highest average during July 2017. 
+
+```{r}
+data %>%
+  group_by(Month=month(reservation_status_date),hotel) %>%
+  count(is_canceled) %>%
+  ggplot(aes(x=Month, y=n, fill=is_canceled)) +
+  geom_bar(stat="identity", position=position_dodge())+
+  scale_fill_brewer(palette="Paired")+
+  theme_minimal() + ggtitle("Reservation Status") +
+  theme(plot.title = element_text(hjust = 0.5)) 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
