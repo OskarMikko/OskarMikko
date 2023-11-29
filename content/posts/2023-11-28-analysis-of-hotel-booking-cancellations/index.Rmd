@@ -91,18 +91,33 @@ data %>%
   theme(plot.title = element_text(hjust = 0.5)) + 
   scale_x_date(date_labels = "%Y (%b)")
 ``` 
+
 The average daily rate for Resort Hotel changes more by the season; Resort Hotel typically have lower rates than City Hotel during the winter, and higher rates during the summer. Both hotels had their highest average during July 2017. 
 
 ```{r}
 data %>%
-  group_by(Month=month(reservation_status_date),hotel) %>%
+  group_by(Month=month(reservation_status_date)) %>%
   count(is_canceled) %>%
   ggplot(aes(x=Month, y=n, fill=is_canceled)) +
   geom_bar(stat="identity", position=position_dodge())+
   scale_fill_brewer(palette="Paired")+
-  theme_minimal() + ggtitle("Reservation Status") +
-  theme(plot.title = element_text(hjust = 0.5)) 
+  theme_minimal() + ggtitle("Reservation Status per Month") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_x_continuous(breaks=seq(1,12,1),expand = c(0, 0)) +
+  ylab("Number of Reservations")
 ```
+
+During the winter months, December January and February the cancellation rates are the highest relative to the reservations, and in January the cancellation rate is even over 50%. July had the second highest cancellation rate. In September and August the cancellation rates are the lowest. The highest confirmed reservations are in August.
+
+
+```{r}
+ggplot(mapping = aes(x = data$market_segment,
+                     y = after_stat(count/sum(count)))) +
+  geom_bar() + scale_y_continuous(labels = scales::percent) + theme_minimal() +
+  ggtitle("Reservations by Market Segment") + xlab("Market Segment") + ylab("Percentage")
+```
+
+Here we've analyzed from where the reservations have been made. More than 45% of the reservations come from online bookings. About 20% come from offline travel agents. About 16% of the reservations are from group reservations and about 10% are direct reservations made at the hotel. 
 
 
 
