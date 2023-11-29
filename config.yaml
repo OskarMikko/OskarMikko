@@ -23,7 +23,7 @@ menu:
       
 params:
   author: Oskar Mikko Vilhelmsson
-  description: This is my blog for my data analytics projects.
+  description: This is my blog for my data analytics and data science projects.
   menu_item_separator: ' - '
   social:
     - icon: github

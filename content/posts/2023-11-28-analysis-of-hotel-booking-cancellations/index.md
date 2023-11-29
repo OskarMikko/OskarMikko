@@ -1,5 +1,5 @@
 ---
-title: Analysis of Hotel Booking Cancellations
+title: Analysis of Hotel Booking Cancelations
 author: Oskar Mikko
 date: '2023-11-28'
 slug: []
@@ -14,9 +14,9 @@ tags:
 
 # Business Problem
 
-In recent years, City Hotel and Resort Hotel in Portugal have seen high cancellation rates. Each hotel is now dealing with a number of issues as a result, including fewer revenues and less than ideal hotel room use. Consequently, lowering cancellation rates is both hotels' primary goel in order to increase their efficiency in generating revenue, and for us to offer thorough business advice to adress this problem. 
+In recent years, City Hotel and Resort Hotel in Portugal have seen high cancelation rates. Each hotel is now dealing with a number of issues as a result, including fewer revenues and less than ideal hotel room use. Consequently, lowering cancelation rates is both hotels' primary goel in order to increase their efficiency in generating revenue, and for us to offer thorough business advice to adress this problem. 
 
-The analysis of hotel booking cancellations as well as other factors that have no bearing on their business and yearly revenue generation are the main topics of this report. 
+The analysis of hotel booking cancelations as well as other factors that have no bearing on their business and yearly revenue generation are the main topics of this report. 
 
 The data used in this case can be found at: https://www.kaggle.com/datasets/mathsian/hotel-bookings. 
 
@@ -108,6 +108,7 @@ When looking at the average daily rate we can see that there are a few outliers 
 index = data[,"adr"]<2000
 data = data[index,]
 ```
+
 # Data Analysis and Visualizations
 
 
@@ -143,6 +144,7 @@ data %>%
 ```
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+
 The percentage of canceled reservations for City Hotel is 41.7% and for Resort Hotel it is 27.8%.
 
 
@@ -177,7 +179,7 @@ data %>%
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
-During the winter months, December January and February the cancellation rates are the highest relative to the reservations, and in January the cancellation rate is even over 50%. July had the second highest cancellation rate. In September and August the cancellation rates are the lowest. The highest confirmed reservations are in August.
+During the winter months, December January and February the cancelation rates are the highest relative to the reservations, and in January the cancelation rate is even over 50%. July had the second highest cancelation rate. In September and August the cancelation rates are the lowest. The highest confirmed reservations are in August.
 
 
 
@@ -193,8 +195,14 @@ ggplot(mapping = aes(x = data$market_segment,
 Here we've analyzed from where the reservations have been made. More than 45% of the reservations come from online bookings. About 20% come from offline travel agents. About 16% of the reservations are from group reservations and about 10% are direct reservations made at the hotel. 
 
 
-
-
+```r
+percentage_canceled = data %>%
+  filter(is_canceled==1) %>%
+  group_by(market_segment) %>%
+  summarise(n = n()) %>%
+  mutate(percentage = round(n / sum(n),3))
+  
+```
 
 
 
